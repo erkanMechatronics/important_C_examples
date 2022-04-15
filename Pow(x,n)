@@ -1,1 +1,47 @@
+#include<stdio.h>
+#include<stdlib.h>
 
+double myPow(double x, int n);
+
+int main()
+{
+	double num1;
+	int n;
+	printf("Welcome to the power calculator program...\n");
+	printf("pow(x,n) is the function of x^n.\n");
+	printf("Example : pow(2,2) = 2^2 = 4.\n");
+	printf("Try it yourself...\n");
+	printf("x : ");
+	scanf("%lf",&num1);
+	printf("\nn : ");
+	scanf("%d",&n);
+	
+	printf("\n(%.5lf)^%d = %.5lf",num1,n,myPow(num1,n));		
+
+	return 0;
+}
+
+double myPow(double x, int n)
+{
+	double multi = 1;
+	if(n > 0)
+	{
+		for(int i = 0;i < n;i++)
+		{
+			multi = multi * x;
+		}
+	}
+	else if(n < 0)
+	{
+		for(int i = 0;i < -n;i++)
+		{
+			multi = multi * x;
+		}
+		multi = 1 / multi;
+	}
+	else if (n == 0)
+	{
+		multi = 1;
+	}
+	return multi;
+}
