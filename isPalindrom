@@ -1,0 +1,71 @@
+#include<stdio.h>
+#include<math.h>
+#include<stdbool.h>
+#define N 100
+
+bool isPalindrom(int x);
+
+int main()
+{
+	int sayi;
+	
+	printf("*********************************************\n");
+	printf("Welcome to the Palindrom Number Program.");
+	printf("\n*********************************************\n");
+	
+	menu : printf("\nEnter the number you want to control :");
+	scanf("%d",&sayi);
+	
+	isPalindrom(sayi);
+	goto menu;
+	return 0;
+}
+
+bool isPalindrom(int x)
+{
+	int toplam = 0;
+	int sonuc;
+	int sayi1[N];
+	int x_main = x;
+	int control;
+	for(int i = 0;sonuc > 0;i++)
+	{
+		sonuc = x/10;
+		toplam = toplam + 1;
+		if (sonuc%10 == 0)
+		{
+			break;
+		}
+		x = sonuc;			
+	}
+		
+	for(int i = toplam;i >= 0;i--)
+	{
+		sayi1[toplam - i] = (int)(x_main/pow(10,i - 1))%10;
+	}
+		
+	
+	
+	for(int i = 0;i < toplam;i++)
+	{
+		if(sayi1[i] != sayi1[toplam - 1 - i])
+		{
+			printf("The number you have entered is a palindrom number.\n");
+			control = 1;
+			break;
+		}
+	
+	}
+	
+	if(x_main < 0)
+	{
+		printf("The number you have entered is not a palindrom number.\n");
+		control = 1;
+	}
+	
+	if(control == 0)
+	{
+		printf("The number you have entered is a palindrom number.\n");
+	}
+		
+}
