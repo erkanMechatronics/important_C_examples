@@ -1,0 +1,76 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#define N 100
+
+int reverse(int x);
+
+int main()
+{
+	int number;
+	
+	printf("Enter the number which you want in the reverse form : ");
+	scanf("%d",&number);
+	printf("\n");
+	reverse(number);
+	
+	return 0;
+}
+
+
+int reverse(int x)
+{
+	int toplam = 0;
+	int x_main = x;
+	int num[N],new_num[N];
+	
+	if(x > 0)
+	{
+		for(int i = 0;x > 0;i++)
+		{
+			num[i] = (int)(x)%10;
+			x = x / 10;
+			toplam = toplam + 1;
+		}
+		
+		if(num[0] == 0)
+		{
+			for(int i = 0;i < toplam - 1;i++)
+			{
+				new_num[i] = num[i + 1];
+			}
+			
+			for(int i = 0;i < toplam - 1;i++)
+			{
+				printf("%d",new_num[i]);
+			}
+		}
+	
+		else
+		{
+		
+			for(int i = 0;i < toplam;i++)
+			{
+				printf("%d",num[i]);
+			}
+		}
+	
+	}
+	else if(x < 0)
+	{
+		x = x * -1;
+		for(int i = 0;x > 0;i++)
+		{
+			num[i] = (int)(x)%10;
+			x = x / 10;
+			toplam = toplam + 1;
+		}
+	
+		printf("-");
+		
+		for(int i = 0;i < toplam;i++)
+		{
+			printf("%d",num[i]);
+		}
+	}
+}
